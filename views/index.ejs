@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Application</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <%- include('navbar') %>
+
+    <div class="messages">
+      <% messages.forEach((message, index) => { %>
+      <div class="message" id="<%= message.id %>">
+        <p><%= message.author %>:</p>
+        <p><%= message.message %></p>
+        <p>
+          <%= message.time.toLocaleTimeString([], { hour: '2-digit', minute:
+          '2-digit' }); %> <%= message.time.toLocaleDateString(); %>
+        </p>
+        <a href="/message/<%= message.id %>">See message</a>
+      </div>
+
+      <% }) %>
+    </div>
+    <a href="/new"> <button class="newMessageButton">New message</button></a>
+    <%- include('footer') %>
+  </body>
+</html>

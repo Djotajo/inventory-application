@@ -1,0 +1,71 @@
+html {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  width: 60%;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  color: blue;
+  text-align: center;
+  gap: 1em;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: 1px solid black;
+}
+
+.message:hover {
+  background-color: blanchedalmond;
+  /* font-weight: 700; */
+}
+
+p {
+  margin: 5px;
+}
+
+.newMessageButton {
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.newMessageButton:hover {
+  background-color: blanchedalmond;
+  scale: 110%;
+  font-weight: 700;
+}
+
+nav,
+footer {
+  width: 100%;
+  background-color: yellow;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+.formSubmit {
+  width: 20%;
+}
