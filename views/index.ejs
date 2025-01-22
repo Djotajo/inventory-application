@@ -8,22 +8,11 @@
   </head>
   <body>
     <%- include('navbar') %>
-
-    <div class="messages">
-      <% messages.forEach((message, index) => { %>
-      <div class="message" id="<%= message.id %>">
-        <p><%= message.author %>:</p>
-        <p><%= message.message %></p>
-        <p>
-          <%= message.time.toLocaleTimeString([], { hour: '2-digit', minute:
-          '2-digit' }); %> <%= message.time.toLocaleDateString(); %>
-        </p>
-        <a href="/message/<%= message.id %>">See message</a>
-      </div>
-
-      <% }) %>
-    </div>
-    <a href="/new"> <button class="newMessageButton">New message</button></a>
+    <h1>Main</h1>
+    <h1>Part</h1>
+    <h1>Of</h1>
+    <h1>The</h1>
+    <h1>Page</h1>
     <%- include('footer') %>
   </body>
 </html>

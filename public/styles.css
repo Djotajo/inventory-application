@@ -69,3 +69,19 @@ form {
 .formSubmit {
   width: 20%;
 }
+
+.nav-links li {
+  list-style-type: none;
+}
+
+.nav-links {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-links a {
+  text-decoration: none;
+}

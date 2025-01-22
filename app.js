@@ -21,6 +21,9 @@ app.use(express.static(assetsPath));
 app.use("/", indexRouter);
 
 // app.use("/new", newRouter);
+// app.use("/items", itemRouter);
+// app.use("/categories", categoryRouter);
+// app.use("/new", newRouter);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`);
