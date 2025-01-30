@@ -66,3 +66,9 @@ main();
 //   price DECIMAL(10,2),
 //   image TEXT NOT NULL
 // );
+
+INSERT INTO brands(name) VALUES ("Rolex");
+
+INSERT INTO watch_inventory(brand_id, model, type_id, movement_id, style_id, price, image)
+VALUES
+(1, 'Submariner', 1, 2, 4, 9100, 'https://media.rolex.com/image/upload/q_auto:eco/f_auto/t_v7-grid/c_limit,w_3840/v1/catalogue/2024/upright-bba-with-shadow/m124060-0001')

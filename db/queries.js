@@ -1,19 +1,19 @@
 const sql = require("./sql");
 
-async function getAllRows() {
-  const rows = await sql`SELECT * FROM inventory`;
-  console.log(rows);
-  console.log(typeof rows);
-  return rows;
+async function getAllItems() {
+  const items = await sql`SELECT * FROM watch_inventory`;
+  console.log(items);
+  console.log(typeof items);
+  return items;
 }
 
-async function getRow(id) {
-  const row = await sql`SELECT * FROM inventory WHERE id =${id}`;
+async function getItemByModel(model) {
+  const row = await sql`SELECT * FROM watch_inventory WHERE model =${model}`;
   return row.length > 0 ? row[0] : null;
 }
 
 async function insertRow(author, message) {
-  await sql`INSERT INTO inventory (author, message) VALUES (${author}, ${message})`;
+  await sql`INSERT INTO watch_inventory (author, message) VALUES (${author}, ${message})`;
 }
 
 async function getAllTypes() {
@@ -37,8 +37,8 @@ async function getAllStyles() {
 }
 
 module.exports = {
-  getAllRows,
-  getRow,
+  getAllItems,
+  getItemByModel,
   insertRow,
   getAllTypes,
   getAllBrands,
