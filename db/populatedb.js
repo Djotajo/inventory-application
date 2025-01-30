@@ -31,3 +31,38 @@ async function main() {
 }
 
 main();
+
+// CREATE TABLE IF NOT EXISTS watch_inventory(id SERIAL PRIMARY KEY, brand TEXT NOT NULL, model TEXT NOT NULL,
+//   type TEXT NOT NULL, movement TEXT NOT NULL,
+// functionality TEXT NOT NULL, price DECIMAL(10,2), image TEXT NOT NULL);
+
+// CREATE TABLE IF NOT EXISTS brands (
+//   id SERIAL PRIMARY KEY,
+//   name TEXT NOT NULL UNIQUE
+// );
+
+// CREATE TABLE IF NOT EXISTS types (
+//   id SERIAL PRIMARY KEY,
+//   name TEXT NOT NULL UNIQUE
+// );
+
+// CREATE TABLE IF NOT EXISTS movements (
+//   id SERIAL PRIMARY KEY,
+//   name TEXT NOT NULL UNIQUE
+// );
+
+// CREATE TABLE IF NOT EXISTS functionalities (
+//   id SERIAL PRIMARY KEY,
+//   name TEXT NOT NULL UNIQUE
+// );
+
+// CREATE TABLE IF NOT EXISTS watch_inventory (
+//   id SERIAL PRIMARY KEY,
+//   brand_id INT NOT NULL REFERENCES brands(id),
+//   model TEXT NOT NULL,
+//   type_id INT NOT NULL REFERENCES types(id),
+//   movement_id INT NOT NULL REFERENCES movements(id),
+//   functionality_id INT NOT NULL REFERENCES functionalities(id),
+//   price DECIMAL(10,2),
+//   image TEXT NOT NULL
+// );
