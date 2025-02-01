@@ -11,13 +11,27 @@ categoriesRouter.get("/", async (req, res) => {
   res.render("categories");
 });
 
+// categoriesRouter.get("/types", async (req, res) => {
+//   try {
+//     const types = await categoriesController.getAllTypes();
+//     res.render("layout", {
+//       title: "Types",
+//       content: "category",
+//       category: types,
+//     });
+//   } catch (error) {
+//     console.error("Error fetching types:", error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
+
 categoriesRouter.get("/types", async (req, res) => {
   try {
-    const types = await categoriesController.getAllTypes();
+    const items = await categoriesController.getItemsByCategory();
     res.render("layout", {
       title: "Types",
-      content: "category",
-      category: types,
+      content: "items",
+      items: items,
     });
   } catch (error) {
     console.error("Error fetching types:", error);

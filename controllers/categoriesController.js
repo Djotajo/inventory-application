@@ -20,9 +20,16 @@ async function getAllStyles(req, res) {
   return styles;
 }
 
+async function getItemsByCategory(req, res) {
+  const itemsByCategory = await db.getItemsByCategory("Casio");
+  console.log(itemsByCategory);
+  return itemsByCategory;
+}
+
 module.exports = {
   getAllTypes,
   getAllMovements,
   getAllBrands,
   getAllStyles,
+  getItemsByCategory,
 };
