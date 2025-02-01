@@ -85,3 +85,7 @@ form {
 .nav-links a {
   text-decoration: none;
 }
+
+.types-div {
+  color: gray;
+}
