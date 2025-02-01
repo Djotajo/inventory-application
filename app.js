@@ -11,6 +11,9 @@ const sql = neon(process.env.DATABASE_URL);
 const assetsPath = path.join(__dirname, "public");
 
 const indexRouter = require("./routes/indexRouter");
+const categoriesRouter = require("./routes/categoriesRouter");
+const itemsRouter = require("./routes/itemsRouter");
+const newItemRouter = require("./routes/newItemRouter");
 // const newRouter = require("./routes/newRouter");
 
 app.set("views", path.join(__dirname, "views"));
@@ -19,6 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(assetsPath));
 
 app.use("/", indexRouter);
+app.use("/categories", categoriesRouter);
+app.use("/items", itemsRouter);
+app.use("/new", newItemRouter);
 
 // app.use("/new", newRouter);
 // app.use("/items", itemRouter);

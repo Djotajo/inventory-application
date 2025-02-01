@@ -5,7 +5,7 @@ const indexRouter = Router();
 const db = require("../db/queries");
 
 async function getAllTypes(req, res) {
-  const types = await db.getAllTypes();
+  const types = await db.getAllItems();
   const type = types[1];
 
   console.log("type");
