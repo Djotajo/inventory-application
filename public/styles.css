@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  width: 60%;
+  width: 80%;
   background-color: bisque;
   display: flex;
   flex-direction: column;
@@ -88,4 +88,35 @@ form {
 
 .types-div {
   color: gray;
+}
+
+main {
+  width: 100%;
+}
+
+.subcategories {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.sub {
+  width: 100%;
+  height: auto;
+}
+
+.items {
+  display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.watch-img {
+  height: 100px;
+  width: 100px;
 }

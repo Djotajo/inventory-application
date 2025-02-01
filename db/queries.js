@@ -1,7 +1,8 @@
 const sql = require("./sql");
 
 async function getAllItems() {
-  const items = await sql`SELECT * FROM watch_inventory`;
+  const items =
+    await sql`SELECT * FROM watch_inventory INNER JOIN brands ON brand_id = brands.id`;
   console.log(items);
   console.log(typeof items);
   return items;

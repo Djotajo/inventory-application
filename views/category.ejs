@@ -1,7 +1,6 @@
-<h1>Types Page</h1>
-<ul>
+<div class="subcategories">
   <% category.forEach(sub => { %>
-  <li><%= sub.name %></li>
+  <div class="sub"><%= sub.name %></div>
   <% }); %>
-</ul>
+</div>
 <a href="/categories">Back to Categories</a>
