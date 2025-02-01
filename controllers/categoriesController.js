@@ -21,8 +21,9 @@ async function getAllStyles(req, res) {
 }
 
 async function getItemsByCategory(req, res) {
-  const itemsByCategory = await db.getItemsByCategory("Casio");
-  console.log(itemsByCategory);
+  const { brandName } = req.params;
+  const query = String(brandName);
+  const itemsByCategory = await db.getItemsByCategory(query);
   return itemsByCategory;
 }
 
