@@ -1,7 +1,7 @@
 <div class="subcategories">
   <% category.forEach(sub => { %>
   <div class="sub">
-    <a href="/categories/brands/<%= sub.name %>"><%= sub.name %></a>
+    <a href="<%= baseUrl %>/<%= sub.name %>"><%= sub.name %></a>
   </div>
   <% }); %>
 </div>
