@@ -20,11 +20,32 @@ async function getAllStyles(req, res) {
   return styles;
 }
 
-async function getItemsByCategory(req, res) {
+async function getItemsByBrand(req, res) {
   const { brandName } = req.params;
   const query = String(brandName);
-  const itemsByCategory = await db.getItemsByCategory(query);
-  return itemsByCategory;
+  const itemsByBrand = await db.getItemsByBrand(query);
+  return itemsByBrand;
+}
+
+async function getItemsByType(req, res) {
+  const { typeName } = req.params;
+  const query = String(typeName);
+  const itemsByType = await db.getItemsByType(query);
+  return itemsByType;
+}
+
+async function getItemsByMovement(req, res) {
+  const { movementName } = req.params;
+  const query = String(movementName);
+  const itemsByMovement = await db.getItemsByMovement(query);
+  return itemsByMovement;
+}
+
+async function getItemsByStyle(req, res) {
+  const { styleName } = req.params;
+  const query = String(styleName);
+  const itemsByStyle = await db.getItemsByStyle(query);
+  return itemsByStyle;
 }
 
 module.exports = {
@@ -32,5 +53,8 @@ module.exports = {
   getAllMovements,
   getAllBrands,
   getAllStyles,
-  getItemsByCategory,
+  getItemsByBrand,
+  getItemsByType,
+  getItemsByMovement,
+  getItemsByStyle,
 };

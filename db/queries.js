@@ -37,10 +37,28 @@ async function getAllStyles() {
   return styles;
 }
 
-async function getItemsByCategory(category) {
-  const itemsByCategory =
-    await sql`SELECT * FROM watch_inventory INNER JOIN brands ON brand_id = brands.id WHERE brands.name = ${category}`;
-  return itemsByCategory;
+async function getItemsByBrand(brand) {
+  const itemsByBrand =
+    await sql`SELECT * FROM watch_inventory INNER JOIN brands ON brand_id = brands.id WHERE brands.name = ${brand}`;
+  return itemsByBrand;
+}
+
+async function getItemsByType(type) {
+  const itemsByType =
+    await sql`SELECT * FROM watch_inventory INNER JOIN types ON type_id = types.id WHERE types.name = ${type}`;
+  return itemsByType;
+}
+
+async function getItemsByMovement(movement) {
+  const itemsByMovement =
+    await sql`SELECT * FROM watch_inventory INNER JOIN movements ON movement_id = movements.id WHERE movements.name = ${movement}`;
+  return itemsByMovement;
+}
+
+async function getItemsByStyle(style) {
+  const itemsByStyle =
+    await sql`SELECT * FROM watch_inventory INNER JOIN styles ON style_id = styles.id WHERE styles.name = ${style}`;
+  return itemsByStyle;
 }
 
 module.exports = {
@@ -51,7 +69,10 @@ module.exports = {
   getAllBrands,
   getAllMovements,
   getAllStyles,
-  getItemsByCategory,
+  getItemsByBrand,
+  getItemsByType,
+  getItemsByMovement,
+  getItemsByStyle,
 };
 
 // async function getAllCategories() {

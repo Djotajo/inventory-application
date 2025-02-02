@@ -11,6 +11,22 @@ categoriesRouter.get("/", async (req, res) => {
   res.render("categories");
 });
 
+categoriesRouter.get("/types/:typeName", async (req, res) => {
+  try {
+    const { typeName } = req.params;
+    const items = await categoriesController.getItemsByType(req, res);
+    res.render("layout", {
+      title: "Types",
+      content: "items",
+      items: items,
+      baseUrl: req.originalUrl,
+    });
+  } catch (error) {
+    console.error("Error fetching types:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 categoriesRouter.get("/types", async (req, res) => {
   try {
     const types = await categoriesController.getAllTypes();
@@ -29,9 +45,9 @@ categoriesRouter.get("/types", async (req, res) => {
 categoriesRouter.get("/brands/:brandName", async (req, res) => {
   try {
     const { brandName } = req.params;
-    const items = await categoriesController.getItemsByCategory(req, res);
+    const items = await categoriesController.getItemsByBrand(req, res);
     res.render("layout", {
-      title: "Types",
+      title: "Brands",
       content: "items",
       items: items,
       baseUrl: req.originalUrl,
@@ -58,6 +74,22 @@ categoriesRouter.get("/brands", async (req, res) => {
   }
 });
 
+categoriesRouter.get("/movements/:movementName", async (req, res) => {
+  try {
+    const { movementName } = req.params;
+    const items = await categoriesController.getItemsByMovement(req, res);
+    res.render("layout", {
+      title: "Movements",
+      content: "items",
+      items: items,
+      baseUrl: req.originalUrl,
+    });
+  } catch (error) {
+    console.error("Error fetching types:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 categoriesRouter.get("/movements", async (req, res) => {
   try {
     const movements = await categoriesController.getAllMovements();
@@ -66,6 +98,22 @@ categoriesRouter.get("/movements", async (req, res) => {
       title: "Movements",
       content: "category",
       category: movements,
+      baseUrl: req.originalUrl,
+    });
+  } catch (error) {
+    console.error("Error fetching types:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+categoriesRouter.get("/styles/:styleName", async (req, res) => {
+  try {
+    const { styleName } = req.params;
+    const items = await categoriesController.getItemsByStyle(req, res);
+    res.render("layout", {
+      title: "Styles",
+      content: "items",
+      items: items,
       baseUrl: req.originalUrl,
     });
   } catch (error) {
