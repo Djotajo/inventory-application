@@ -88,6 +88,27 @@ form {
 
 .types-div {
   color: gray;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1em;
+}
+
+.category {
+  height: 200px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 100%;
+  background-color: aqua;
+  font-weight: 600;
+  font-size: 2em;
+}
+
+.category:hover {
+  transform: scale(0.9);
 }
 
 main {
