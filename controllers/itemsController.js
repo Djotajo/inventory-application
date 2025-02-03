@@ -5,8 +5,15 @@ async function getAllItems(req, res) {
   return items;
 }
 
+// async function getItemByModel(req, res) {
+//   const itemByModel = await db.getItemByModel(req.model);
+//   return itemByModel;
+// }
+
 async function getItemByModel(req, res) {
-  const itemByModel = await db.getItemByModel(req.model);
+  const { model } = req.params;
+  const query = String(model);
+  const itemByModel = await db.getItemByModel(query);
   return itemByModel;
 }
 

@@ -12,6 +12,23 @@ itemsRouter.get("/", async (req, res) => {
       title: "Items",
       content: "items",
       items,
+      baseUrl: req.originalUrl,
+    });
+  } catch (error) {
+    console.error("Error fetching types:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+itemsRouter.get("/:model", async (req, res) => {
+  try {
+    const { model } = req.params;
+    const item = await itemsController.getItemByModel(req, res);
+    res.render("layout", {
+      title: model,
+      content: "item",
+      item: item,
+      baseUrl: req.originalUrl,
     });
   } catch (error) {
     console.error("Error fetching types:", error);

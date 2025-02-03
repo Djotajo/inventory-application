@@ -1,13 +1,7 @@
 <div class="items">
-  <% items.forEach(item => { %>
   <div class="item">
     <%= item.name %> <%= item.model %>
     <img src="<%= item.image %>" alt="" class="watch-img" />
-    <a href="<%= baseUrl %>/<%= encodeURIComponent(item.model) %>"
-      ><%= item.model %></a
-    >
   </div>
-
-  <% }); %>
 </div>
 <a href="/categories">Back to Categories</a>
