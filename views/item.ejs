@@ -1,7 +1,14 @@
 <div class="items">
   <div class="item">
-    <%= item.name %> <%= item.model %>
+    <%= item.brand %> <%= item.model %>
     <img src="<%= item.image %>" alt="" class="watch-img" />
+    <p>
+      $<%= Number(item.price).toLocaleString('en-US', { minimumFractionDigits:
+      0, maximumFractionDigits: 2 }) %>
+    </p>
+    <p>Type: <%= item.type %></p>
+    <p>Movement: <%= item.movement %></p>
+    <p>Style: <%= item.style %></p>
   </div>
 </div>
 <a href="/categories">Back to Categories</a>
