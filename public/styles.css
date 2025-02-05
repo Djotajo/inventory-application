@@ -143,10 +143,11 @@ main {
 }
 
 .item {
+  display: flex;
   flex-direction: column;
   height: 300px;
   text-align: center;
-  display: flex;
+
   justify-content: center;
   align-items: center;
   border: 1px solid black;
@@ -160,9 +161,22 @@ main {
   max-width: calc(25% - 10px);
 }
 
+.item span {
+  display: inline-block;
+}
+
+.items a {
+  color: inherit;
+}
+
+.items a:visited {
+  color: inherit;
+}
+
 .watch-img {
   height: 100px;
   width: 100px;
+  display: inline-block;
 }
 
 .hero {
