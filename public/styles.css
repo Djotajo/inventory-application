@@ -92,6 +92,7 @@ form {
   justify-content: space-around;
   width: 100%;
   gap: 1em;
+  flex-wrap: wrap;
 }
 
 .category {
@@ -113,6 +114,14 @@ form {
 
 .category:hover {
   transform: scale(0.9);
+}
+
+.category {
+  color: black;
+}
+
+.category:visited {
+  color: black;
 }
 
 main {

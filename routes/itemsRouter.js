@@ -13,6 +13,7 @@ itemsRouter.get("/", async (req, res) => {
       content: "items",
       items,
       baseUrl: req.originalUrl,
+      back: "/",
     });
   } catch (error) {
     console.error("Error fetching types:", error);

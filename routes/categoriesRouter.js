@@ -20,6 +20,7 @@ categoriesRouter.get("/types/:typeName", async (req, res) => {
       content: "items",
       items: items,
       baseUrl: req.originalUrl,
+      back: "/categories/types",
     });
   } catch (error) {
     console.error("Error fetching types:", error);
@@ -51,6 +52,7 @@ categoriesRouter.get("/brands/:brandName", async (req, res) => {
       content: "items",
       items: items,
       baseUrl: req.originalUrl,
+      back: "/categories/brands",
     });
   } catch (error) {
     console.error("Error fetching types:", error);
@@ -83,6 +85,7 @@ categoriesRouter.get("/movements/:movementName", async (req, res) => {
       content: "items",
       items: items,
       baseUrl: req.originalUrl,
+      back: "/categories/movements",
     });
   } catch (error) {
     console.error("Error fetching types:", error);
@@ -109,12 +112,14 @@ categoriesRouter.get("/movements", async (req, res) => {
 categoriesRouter.get("/styles/:styleName", async (req, res) => {
   try {
     const { styleName } = req.params;
+    console.log(req.baseUrl);
     const items = await categoriesController.getItemsByStyle(req, res);
     res.render("layout", {
       title: "Styles",
       content: "items",
       items: items,
       baseUrl: req.originalUrl,
+      back: "/categories/styles",
     });
   } catch (error) {
     console.error("Error fetching types:", error);

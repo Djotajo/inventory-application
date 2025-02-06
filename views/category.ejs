@@ -1,8 +1,8 @@
-<div class="subcategories">
+<div class="types-div">
   <% category.forEach(sub => { %>
-  <div class="category">
-    <a href="<%= baseUrl %>/<%= sub.name %>"><%= sub.name %></a>
-  </div>
+
+  <a href="<%= baseUrl %>/<%= sub.name %>" class="category"><%= sub.name %></a>
+
   <% }); %>
 </div>
 <a href="/categories">Back to Categories</a>
