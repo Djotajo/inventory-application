@@ -13,11 +13,30 @@ const db = require("../db/queries");
 //   console.log(types);
 //   return types;
 // }
+const categoriesController = require("../controllers/categoriesController");
 
-newItemRouter.get("/", (req, res) => {
-  //   const types = getAllTypes();
-
-  res.render("form");
+newItemRouter.get("/", async (req, res) => {
+  const types = await categoriesController.getAllTypes();
+  console.log(types);
+  res.render("form", {
+    types: types,
+  });
 });
 
 module.exports = newItemRouter;
+
+// itemsRouter.get("/", async (req, res) => {
+//   try {
+//     const items = await itemsController.getAllItems();
+//     res.render("layout", {
+//       title: "Items",
+//       content: "items",
+//       items,
+//       baseUrl: req.originalUrl,
+//       back: "/",
+//     });
+//   } catch (error) {
+//     console.error("Error fetching types:", error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });

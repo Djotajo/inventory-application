@@ -17,6 +17,15 @@
         id="author"
         placeholder="Enter your name"
       />
+      <label for="type">Type</label>
+      <select name="type" id="type" placeholder="Enter your name">
+        <% types.forEach(type => { %>
+        <option value="<%= type.name %>>"><%= type.name %></option>
+
+        <% }); %>
+      </select>
+
+      />
       <label for="message">Message</label>
       <textarea
         rows="10"
