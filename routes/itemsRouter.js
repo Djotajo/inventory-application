@@ -31,6 +31,7 @@ itemsRouter.get("/:model", async (req, res) => {
       content: "item",
       item: item,
       baseUrl: req.originalUrl,
+      back: "/items",
     });
   } catch (error) {
     console.error("Error fetching types:", error);
