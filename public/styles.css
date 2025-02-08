@@ -59,7 +59,11 @@ footer {
   text-align: center;
 }
 
-form {
+.search-bar {
+  display: flex;
+}
+
+.new-watch-form {
   display: flex;
   flex-direction: column;
   gap: 1em;

@@ -17,6 +17,13 @@ async function getItemByModel(req, res) {
   return itemByModel;
 }
 
+async function getItemByModelSearch(req, res) {
+  const { model } = req.query;
+  const query = String(model);
+  const itemByModel = await db.getItemByModel(query);
+  return itemByModel;
+}
+
 // async function insertRow(req, res) {
 //   await db.insertRow(req.author, req.message);
 //   return brands;
@@ -25,4 +32,5 @@ async function getItemByModel(req, res) {
 module.exports = {
   getAllItems,
   getItemByModel,
+  getItemByModelSearch,
 };

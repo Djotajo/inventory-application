@@ -14,6 +14,7 @@ const indexRouter = require("./routes/indexRouter");
 const categoriesRouter = require("./routes/categoriesRouter");
 const itemsRouter = require("./routes/itemsRouter");
 const newItemRouter = require("./routes/newItemRouter");
+const searchRouter = require("./routes/searchRouter");
 // const newRouter = require("./routes/newRouter");
 
 app.set("views", path.join(__dirname, "views"));
@@ -25,6 +26,7 @@ app.use("/", indexRouter);
 app.use("/categories", categoriesRouter);
 app.use("/items", itemsRouter);
 app.use("/new", newItemRouter);
+app.use("/search", searchRouter);
 
 // app.use("/new", newRouter);
 // app.use("/items", itemRouter);

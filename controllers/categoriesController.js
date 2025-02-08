@@ -31,6 +31,7 @@ async function getItemsByType(req, res) {
   const { typeName } = req.params;
   const query = String(typeName);
   const itemsByType = await db.getItemsByType(query);
+  console.log(itemsByType);
   return itemsByType;
 }
 
