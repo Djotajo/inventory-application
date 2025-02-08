@@ -10,31 +10,63 @@
     <%- include('navbar') %>
 
     <form method="POST" action="/new">
-      <label for="author">Name</label>
+      <label for="model">Name</label>
       <input
         type="text"
-        name="author"
-        id="author"
+        name="model"
+        id="model"
         placeholder="Enter your name"
       />
-      <label for="type">Type</label>
-      <select name="type" id="type" placeholder="Enter your name">
-        <% types.forEach(type => { %>
-        <option value="<%= type.name %>>"><%= type.name %></option>
+      <label for="type_id">Type</label>
+      <select name="type_id" id="type_id">
+        <% types.forEach((type, index) => { %>
+        <option value="<%= type.id %>" <%= index === 0 ? "selected" : "" %>>
+          <%= type.name %>
+        </option>
+
+        <% }); %>
+      </select>
+      <label for="brand_id">Brand</label>
+      <select name="brand_id" id="brand_id">
+        <% brands.forEach((brand, index) => { %>
+        <option value="<%= brand.id %>" <%= index === 0 ? "selected" : "" %>><%= brand.name %></option>
 
         <% }); %>
       </select>
 
+      <label for="movement_id">Movement</label>
+      <select name="movement_id" id="movement_id">
+        <% movements.forEach((movement, index) => { %>
+        <option value="<%= movement.id %>" <%= index === 0 ? "selected" : "" %>><%= movement.name %></option>
+
+        <% }); %>
+      </select>
+
+      <label for="style_id">Style</label>
+      <select name="style_id" id="style_id">
+        <% styles.forEach((style, index) => { %>
+        <option value="<%= style.id %>" <%= index === 0 ? "selected" : "" %>><%= style.name %></option>
+
+        <% }); %>
+      </select>
+      <label for="price">Price</label>
+      <input
+        type="number"
+        min="1"
+        step="any"
+        name="price"
+        id="price"
+        placeholder="Enter price"
       />
-      <label for="message">Message</label>
-      <textarea
-        rows="10"
-        cols="50"
-        name="message"
-        id="message"
-        placeholder="Enter your message "
-      ></textarea>
-      <input type="submit" class="formSubmit" />
+      <label for="image">Name</label>
+      <input
+        type="text"
+        name="image"
+        id="image"
+        placeholder="Enter your name"
+      />
+      <button type="submit" class="formSubmit">Submit</button>
+      <!-- <input type="submit" class="formSubmit" /> -->
     </form>
     <%- include('footer') %>
   </body>

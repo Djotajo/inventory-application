@@ -14,27 +14,35 @@ async function getItemByModel(model) {
   return row.length > 0 ? row[0] : null;
 }
 
-async function insertRow(author, message) {
-  await sql`INSERT INTO watch_inventory (author, message) VALUES (${author}, ${message})`;
+async function postNewWatch(
+  brand_id,
+  model,
+  type_id,
+  movement_id,
+  style_id,
+  price,
+  image
+) {
+  await sql`INSERT INTO watch_inventory(brand_id, model, type_id, movement_id, style_id, price, image) VALUES (${brand_id}, ${model}, ${type_id}, ${movement_id}, ${style_id}, ${price}, ${image})`;
 }
 
 async function getAllTypes() {
-  const types = await sql`SELECT name FROM types`;
+  const types = await sql`SELECT name, id FROM types`;
   return types;
 }
 
 async function getAllBrands() {
-  const brands = await sql`SELECT name FROM brands`;
+  const brands = await sql`SELECT name, id FROM brands`;
   return brands;
 }
 
 async function getAllMovements() {
-  const movements = await sql`SELECT name FROM movements`;
+  const movements = await sql`SELECT name, id FROM movements`;
   return movements;
 }
 
 async function getAllStyles() {
-  const styles = await sql`SELECT name FROM styles`;
+  const styles = await sql`SELECT name, id FROM styles`;
   return styles;
 }
 
@@ -65,7 +73,7 @@ async function getItemsByStyle(style) {
 module.exports = {
   getAllItems,
   getItemByModel,
-  insertRow,
+  postNewWatch,
   getAllTypes,
   getAllBrands,
   getAllMovements,
