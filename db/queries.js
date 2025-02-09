@@ -2,7 +2,7 @@ const sql = require("./sql");
 
 async function getAllItems() {
   const items =
-    await sql`SELECT * FROM watch_inventory INNER JOIN brands ON brand_id = brands.id`;
+    await sql`SELECT watch_inventory.id AS id, brands.name AS name, model, image FROM watch_inventory INNER JOIN brands ON brand_id = brands.id`;
   return items;
 }
 
@@ -10,6 +10,11 @@ async function getItemByModel(model) {
   const row =
     await sql`SELECT model, price, image, brands.name AS brand, styles.name AS style, types.name AS type, movements.name AS movement FROM watch_inventory INNER JOIN brands ON watch_inventory.brand_id = brands.id INNER JOIN styles ON watch_inventory.style_id = styles.id INNER JOIN types ON watch_inventory.type_id = types.id INNER JOIN movements ON watch_inventory.movement_id = movements.id WHERE model =${model}`;
   return row.length > 0 ? row[0] : null;
+}
+
+async function deleteItemById(id) {
+  await sql`DELETE FROM watch_inventory WHERE watch_inventory.id = ${id}`;
+  return;
 }
 
 async function postNewWatch(
@@ -71,6 +76,7 @@ async function getItemsByStyle(style) {
 module.exports = {
   getAllItems,
   getItemByModel,
+  deleteItemById,
   postNewWatch,
   getAllTypes,
   getAllBrands,

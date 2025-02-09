@@ -17,6 +17,13 @@ async function getItemByModel(req, res) {
   return itemByModel;
 }
 
+async function deleteItemById(req, res) {
+  const { id } = req.params;
+  const query = String(id);
+  await db.deleteItemById(query);
+  return;
+}
+
 async function getItemByModelSearch(req, res) {
   const { model } = req.query;
   const query = String(model);
@@ -24,13 +31,9 @@ async function getItemByModelSearch(req, res) {
   return itemByModel;
 }
 
-// async function insertRow(req, res) {
-//   await db.insertRow(req.author, req.message);
-//   return brands;
-// }
-
 module.exports = {
   getAllItems,
   getItemByModel,
+  deleteItemById,
   getItemByModelSearch,
 };

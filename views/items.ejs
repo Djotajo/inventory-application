@@ -5,6 +5,10 @@
       ><p><%= item.name %> <%= item.model %></p>
       <img src="<%= item.image %>" alt="" class="watch-img"
     /></a>
+    <form method="POST" action="/delete/<%= item.id %>">
+      <input type="hidden" name="id" value="<%= item.id %>" />
+      <button type="submit">Delete</button>
+    </form>
   </div>
 
   <% }); %>
