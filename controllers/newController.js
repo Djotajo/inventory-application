@@ -4,7 +4,6 @@ const db = require("../db/queries");
 async function newItemCreate(req, res) {
   const { brand_id, model, type_id, movement_id, style_id, price, image } =
     req.body;
-  console.log(req.body);
   await db.postNewWatch(
     Number(brand_id),
     model,

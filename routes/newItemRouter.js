@@ -13,7 +13,6 @@ newItemRouter.get("/", async (req, res) => {
   const brands = await categoriesController.getAllBrands();
   const movements = await categoriesController.getAllMovements();
   const styles = await categoriesController.getAllStyles();
-  console.log(types);
   res.render("form", {
     types: types,
     brands: brands,

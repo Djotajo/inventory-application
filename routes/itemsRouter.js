@@ -25,7 +25,6 @@ itemsRouter.get("/:model", async (req, res) => {
   try {
     const { model } = req.params;
     const item = await itemsController.getItemByModel(req, res);
-    console.log(item);
     res.render("layout", {
       title: model,
       content: "item",
