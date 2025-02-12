@@ -12,6 +12,13 @@ async function getItemByModel(model) {
   return row.length > 0 ? row[0] : null;
 }
 
+async function getItemByModelSearch(model) {
+  const row =
+    await sql`SELECT model, price, image, brands.name AS brand, styles.name AS style, types.name AS type, movements.name AS movement FROM watch_inventory INNER JOIN brands ON watch_inventory.brand_id = brands.id INNER JOIN styles ON watch_inventory.style_id = styles.id INNER JOIN types ON watch_inventory.type_id = types.id INNER JOIN movements ON watch_inventory.movement_id = movements.id WHERE model ILIKE ${`%${model}%`}`;
+  console.log(row);
+  return row.length > 0 ? row : null;
+}
+
 async function deleteItemById(id) {
   await sql`DELETE FROM watch_inventory WHERE watch_inventory.id = ${id}`;
   return;
@@ -76,6 +83,7 @@ async function getItemsByStyle(style) {
 module.exports = {
   getAllItems,
   getItemByModel,
+  getItemByModelSearch,
   deleteItemById,
   postNewWatch,
   getAllTypes,

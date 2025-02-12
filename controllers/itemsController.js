@@ -60,7 +60,7 @@ async function deleteItemById(req, res) {
 async function getItemByModelSearch(req, res) {
   const { model } = req.query;
   const query = String(model);
-  const itemByModel = await db.getItemByModel(query);
+  const itemByModel = await db.getItemByModelSearch(query);
   return itemByModel;
 }
 

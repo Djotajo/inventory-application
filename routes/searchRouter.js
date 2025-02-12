@@ -10,8 +10,8 @@ const db = require("../db/queries");
 searchRouter.get("/", async (req, res) => {
   try {
     const { model } = req.query;
-    const item = await itemsController.getItemByModelSearch(req, res);
-    if (item === null) {
+    const items = await itemsController.getItemByModelSearch(req, res);
+    if (items === null) {
       res.render("layout", {
         title: "item not found",
         content: "itemNotFound",
@@ -21,8 +21,8 @@ searchRouter.get("/", async (req, res) => {
     } else {
       res.render("layout", {
         title: model,
-        content: "item",
-        item: item,
+        content: "itemsSearch",
+        items: items,
         baseUrl: req.originalUrl,
         back: "/items",
       });
