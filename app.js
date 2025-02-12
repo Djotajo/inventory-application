@@ -16,7 +16,7 @@ const itemsRouter = require("./routes/itemsRouter");
 const newItemRouter = require("./routes/newItemRouter");
 const searchRouter = require("./routes/searchRouter");
 const deleteRouter = require("./routes/deleteRouter");
-// const newRouter = require("./routes/newRouter");
+const updateItemRouter = require("./routes/updateItemRouter");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -29,11 +29,7 @@ app.use("/items", itemsRouter);
 app.use("/new", newItemRouter);
 app.use("/search", searchRouter);
 app.use("/delete", deleteRouter);
-
-// app.use("/new", newRouter);
-// app.use("/items", itemRouter);
-// app.use("/categories", categoryRouter);
-// app.use("/new", newRouter);
+app.use("/update", updateItemRouter);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`);
