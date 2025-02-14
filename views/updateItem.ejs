@@ -1,16 +1,17 @@
 
-    <form method="POST" action="/new" class="new-watch-form">
+    <form method="POST" action="/update" class="new-watch-form">
       <label for="model">Name</label>
       <input
         type="text"
         name="model"
         id="model"
         placeholder="Enter your name"
+        value="<%= item.model %>"
       />
       <label for="type_id">Type</label>
       <select name="type_id" id="type_id">
         <% types.forEach((type, index) => { %>
-        <option value="<%= type.id %>" <%= index === 0 ? "selected" : "" %>>
+        <option value="<%= type.id %>" <%= type.name === item.type ? "selected" : "" %>>
           <%= type.name %>
         </option>
 
@@ -19,7 +20,7 @@
       <label for="brand_id">Brand</label>
       <select name="brand_id" id="brand_id">
         <% brands.forEach((brand, index) => { %>
-        <option value="<%= brand.id %>" <%= index === 0 ? "selected" : "" %>><%= brand.name %></option>
+        <option value="<%= brand.id %>" <%= brand.name === item.brand ? "selected" : "" %>><%= brand.name %></option>
 
         <% }); %>
       </select>
@@ -27,7 +28,7 @@
       <label for="movement_id">Movement</label>
       <select name="movement_id" id="movement_id">
         <% movements.forEach((movement, index) => { %>
-        <option value="<%= movement.id %>" <%= index === 0 ? "selected" : "" %>><%= movement.name %></option>
+        <option value="<%= movement.id %>" <%= movement.name === item.movement ? "selected" : "" %>><%= movement.name %></option>
 
         <% }); %>
       </select>
@@ -35,7 +36,7 @@
       <label for="style_id">Style</label>
       <select name="style_id" id="style_id">
         <% styles.forEach((style, index) => { %>
-        <option value="<%= style.id %>" <%= index === 0 ? "selected" : "" %>><%= style.name %></option>
+        <option value="<%= style.id %>" <%= style.name === item.style ? "selected" : "" %>><%= style.name %></option>
 
         <% }); %>
       </select>
@@ -47,14 +48,18 @@
         name="price"
         id="price"
         placeholder="Enter price"
+        value="<%= item.price%>"
       />
-      <label for="image">Name</label>
+      <label for="image">Link to image</label>
       <input
         type="text"
         name="image"
         id="image"
         placeholder="Enter your name"
+        value="<%= item.image%>"
       />
+
+      <input type="hidden" name="id" id="id" value="<%=item.id%>" >
       <button type="submit" class="formSubmit">Submit</button>
     </form>
 

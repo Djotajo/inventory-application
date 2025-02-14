@@ -8,7 +8,7 @@ async function getAllItems() {
 
 async function getItemByModel(model) {
   const row =
-    await sql`SELECT model, price, image, brands.name AS brand, styles.name AS style, types.name AS type, movements.name AS movement FROM watch_inventory INNER JOIN brands ON watch_inventory.brand_id = brands.id INNER JOIN styles ON watch_inventory.style_id = styles.id INNER JOIN types ON watch_inventory.type_id = types.id INNER JOIN movements ON watch_inventory.movement_id = movements.id WHERE model =${model}`;
+    await sql`SELECT watch_inventory.id, model, price, image, brands.name AS brand, styles.name AS style, types.name AS type, movements.name AS movement FROM watch_inventory INNER JOIN brands ON watch_inventory.brand_id = brands.id INNER JOIN styles ON watch_inventory.style_id = styles.id INNER JOIN types ON watch_inventory.type_id = types.id INNER JOIN movements ON watch_inventory.movement_id = movements.id WHERE model =${model}`;
   return row.length > 0 ? row[0] : null;
 }
 
@@ -34,6 +34,19 @@ async function postNewWatch(
   image
 ) {
   await sql`INSERT INTO watch_inventory(brand_id, model, type_id, movement_id, style_id, price, image) VALUES (${brand_id}, ${model}, ${type_id}, ${movement_id}, ${style_id}, ${price}, ${image})`;
+}
+
+async function postUpdateWatch(
+  id,
+  brand_id,
+  model,
+  type_id,
+  movement_id,
+  style_id,
+  price,
+  image
+) {
+  await sql`UPDATE watch_inventory SET brand_id= ${brand_id}, model = ${model}, type_id =${type_id}, movement_id = ${movement_id}, style_id = ${style_id}, price = ${price}, image = ${image} WHERE watch_inventory.id=${id}`;
 }
 
 async function getAllTypes() {
@@ -86,6 +99,7 @@ module.exports = {
   getItemByModelSearch,
   deleteItemById,
   postNewWatch,
+  postUpdateWatch,
   getAllTypes,
   getAllBrands,
   getAllMovements,

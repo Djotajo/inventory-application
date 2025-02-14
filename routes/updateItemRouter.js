@@ -30,6 +30,7 @@ updateItemRouter.get("/:model", async (req, res) => {
     const movements = await categoriesController.getAllMovements();
     const styles = await categoriesController.getAllStyles();
     const item = await itemsController.getItemByModel(req, res);
+    console.log(item);
     res.render("layout", {
       title: model,
       content: "updateItem",
@@ -47,6 +48,6 @@ updateItemRouter.get("/:model", async (req, res) => {
   }
 });
 
-updateItemRouter.post("/", newController.newItemCreate);
+updateItemRouter.post("/", newController.itemUpdate);
 
 module.exports = updateItemRouter;
