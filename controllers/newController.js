@@ -19,10 +19,6 @@ async function newItemCreate(req, res) {
 async function itemUpdate(req, res) {
   const { id, brand_id, model, type_id, movement_id, style_id, price, image } =
     req.body;
-  console.log("test");
-  console.log(id);
-  console.log(brand_id);
-  console.log(model);
   await db.postUpdateWatch(
     Number(id),
     Number(brand_id),

@@ -1,11 +1,11 @@
 <div class="items">
   <% items.forEach(item => { %>
   <div class="item">
-    <a href="<%= baseUrl %>/<%= encodeURIComponent(item.model) %>"
+    <a href="/<%= baseUrl %>/<%= encodeURIComponent(item.model) %>"
       ><p><%= item.name %> <%= item.model %></p>
       <img src="<%= item.image %>" alt="" class="watch-img"
     /></a>
-    <form method="POST" action="/delete/<%= item.id %>">
+    <form method="POST" action="../delete/<%= item.id %>/password">
       <input type="hidden" name="id" value="<%= item.id %>" />
       <button type="submit">Delete</button>
     </form>
