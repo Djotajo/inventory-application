@@ -1,7 +1,7 @@
 <div class="items">
   <% items.forEach(item => { %>
   <div class="item">
-    <a href="/<%= baseUrl %>/<%= encodeURIComponent(item.model) %>"
+    <a href="<%= baseUrl %>/<%= encodeURIComponent(item.model) %>"
       ><p><%= item.name %> <%= item.model %></p>
       <img src="<%= item.image %>" alt="" class="watch-img"
     /></a>

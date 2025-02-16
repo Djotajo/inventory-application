@@ -1,15 +1,17 @@
 <div class="items">
-  <div class="item">
-    <%= item.brand %> <%= item.model %>
-    <img src="<%= item.image %>" alt="" class="watch-img" />
-    <p>
-      $<%= Number(item.price).toLocaleString('en-US', { minimumFractionDigits:
-      0, maximumFractionDigits: 2 }) %>
-    </p>
-    <p>Type: <%= item.type %></p>
-    <p>Movement: <%= item.movement %></p>
-    <p>Style: <%= item.style %></p>
-    <a href="/update/<%= item.model%>"><Button>Update info</Button></a>
+  <div class="singleItem">
+    <div><img src="<%= item.image %>" alt="" class="item-img" /></div>
+    <div>
+      <%= item.brand %> <%= item.model %>
+      <p>
+        $<%= Number(item.price).toLocaleString('en-US', { minimumFractionDigits:
+        0, maximumFractionDigits: 2 }) %>
+      </p>
+      <p>Type: <%= item.type %></p>
+      <p>Movement: <%= item.movement %></p>
+      <p>Style: <%= item.style %></p>
+      <a href="/update/<%= item.model%>"><Button>Update info</Button></a>
+    </div>
   </div>
+  <a href="<%= back %>">Back</a>
 </div>
-<a href="<%= back %>">Back</a>

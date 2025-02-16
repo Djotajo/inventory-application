@@ -22,7 +22,14 @@ deleteRouter.post("/:id/password/submit", async (req, res) => {
     await db.deleteItemById(id);
     res.redirect("/");
   } else {
-    res.redirect("../items");
+    res.render("layout", {
+      content: "passwordPrompt",
+      title: "Enter Password",
+      id: id,
+      message: "Wrong password",
+      baseUrl: req.originalUrl,
+      back: "/items",
+    });
   }
 });
 
@@ -32,6 +39,7 @@ deleteRouter.post("/:id/password", async (req, res) => {
     content: "passwordPrompt",
     title: "Enter Password",
     id: id,
+    message: "",
     baseUrl: req.originalUrl,
     back: "/items",
   });
