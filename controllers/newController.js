@@ -1,5 +1,6 @@
 const { query } = require("express");
 const db = require("../db/queries");
+const { getItemByModel } = require("./itemsController");
 
 async function newItemCreate(req, res) {
   const { brand_id, model, type_id, movement_id, style_id, price, image } =
@@ -13,7 +14,16 @@ async function newItemCreate(req, res) {
     price,
     image
   );
-  res.redirect("/");
+  // res.redirect("/");
+
+  const item = await db.getItemByModel(model);
+  res.render("layout", {
+    title: model,
+    content: "item",
+    item: item,
+    baseUrl: req.originalUrl,
+    back: "/items",
+  });
 }
 
 async function itemUpdate(req, res) {

@@ -5,7 +5,7 @@
         type="text"
         name="model"
         id="model"
-        placeholder="Enter your name"
+        placeholder="Enter watch model"
         value="<%= item.model %>"
       />
       <label for="type_id">Type</label>
@@ -55,8 +55,9 @@
         type="text"
         name="image"
         id="image"
-        placeholder="Enter your name"
+        placeholder="Add image link"
         value="<%= item.image%>"
+        disabled
       />
 
       <input type="hidden" name="id" id="id" value="<%=item.id%>" >

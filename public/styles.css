@@ -81,6 +81,8 @@ p {
   width: 100%;
   gap: 1em;
   flex-wrap: wrap;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .category {
@@ -98,6 +100,22 @@ p {
 
   flex: 1 1 calc(20% - 10px); /* 25% width minus gap */
   max-width: calc(25% - 10px);
+}
+
+.items > .back-button,
+main > .back-button {
+  font-size: 3em;
+  align-self: center;
+  color: inherit;
+}
+
+main > .back-button {
+  font-size: 2em;
+}
+
+.items .back-button:hover,
+main > .back-button:hover {
+  color: gray;
 }
 
 .category:hover {
@@ -324,6 +342,13 @@ form {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 } */
 
+.not-found {
+  font-weight: 500;
+  font-size: clamp(14px, 1.3vw, 30px);
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
 .item {
   display: flex;
   flex-direction: column;
@@ -449,7 +474,7 @@ nav h1 {
 .nav-links a {
   text-decoration: none;
   color: white;
-  font-size: clamp(14px, 1.2vw, 18px);
+  font-size: clamp(14px, 1.2vw, 25px);
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
 }
@@ -537,4 +562,60 @@ button,
 input {
   font-size: clamp(14px, 1.2vw, 18px);
   padding: clamp(6px, 0.8vw, 12px) clamp(12px, 1.5vw, 20px);
+}
+
+.new-watch-form {
+  background: #2a2d3e; /* Matches item cards */
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 800px; /* Wider form */
+  width: 90%; /* Responsive width */
+  margin: 3rem auto; /* Centers the form */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: clamp(14px, 1.2vw, 18px);
+}
+
+/* Labels */
+.new-watch-form label {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9); /* Softer white for contrast */
+}
+
+/* Inputs, Selects, and Button - Same Width */
+.new-watch-form input,
+.new-watch-form select,
+.new-watch-form button {
+  width: 100%; /* Ensures everything is uniform */
+  max-width: 600px; /* Prevents too-wide elements */
+  background: #1e1e2f;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  font-size: clamp(14px, 1vw, 16px);
+  border-radius: 5px;
+  transition: border 0.3s ease;
+}
+
+/* Focus effect */
+.new-watch-form input:focus,
+.new-watch-form select:focus {
+  border-color: #00bcd4;
+  outline: none;
+}
+
+/* Submit Button */
+.formSubmit {
+  background: #00bcd4;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Button Hover Effect */
+.formSubmit:hover {
+  background: #0195a2;
 }
